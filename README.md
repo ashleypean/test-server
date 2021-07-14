@@ -7,9 +7,7 @@ So it seems like we are having issues accessing the context of the middleware fu
 
 Right now we want to use the internal express code (currently hosted in the [express-observer directory](https://github.com/ashleypean/test-server/tree/main/express-observer) to be able to keep track of changes to the request and response objects, between each middleware function. 
 
-The way we're testing this is by setting up a dummy server and sending a request to  ```localhost:3003```. We're tracking the execution of functions through the ```layer.handle_request``` method [(link)](https://github.com/ashleypean/test-server/blob/main/express-observer/lib/router/layer.js#L88), and logging to the console everytime we hit a new layer. We're able to see the express init and query functions execute, but when we get to the router, we can't access any of the middleware/controller methods. After we ge to the router function, the ```layer.handle_request``` method is completely inaccessible.  
+The way we're testing this is by setting up a dummy server and sending a request to  ```localhost:3003```. We're tracking the execution of functions through the ```layer.handle_request``` method [(link)](https://github.com/ashleypean/test-server/blob/main/express-observer/lib/router/layer.js#L88), and logging to the console everytime we hit a new layer. We're able to see the express init and query functions execute, but when we get to the router, we can't access any of the middleware/controller methods. 
 
-We have console logs running through the server that will probably highlight what I'm saying better than I can explain in words. If you make a request to ```localhost:3000/```, you should see it pop up in the console.
-
-So long story short, our questions is: Where in the express code do routers/controllers/middleware functions get executed?
+So long story short, our questions is: ***Where in the express code do routers/controllers/middleware functions get executed?***
 
